@@ -10,6 +10,6 @@ class EmployeeService {
     @Autowired
     lateinit var employeeRepository: EmployeeRepository
 
-    fun getAllEmployees() = employeeRepository.findAll()
+    fun getAllEmployees() = employeeRepository.findAll()!!
 
 }

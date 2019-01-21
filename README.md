@@ -71,7 +71,7 @@ SELECT * FROM employee;
 
 Add a Configuration file (usually within a config package)
 ```kotlin
-package ca.jent.webflux.config
+package ca.jent.ca.jent.webflux.config
 
 import org.springframework.data.cassandra.config.AbstractCassandraConfiguration
 
@@ -81,7 +81,7 @@ class CassandraConfig: AbstractCassandraConfiguration() {
 
     override fun getContactPoints() = "localhost"
 
-    override fun getEntityBasePackages() = arrayOf("ca.jent.webflux.domain")
+    override fun getEntityBasePackages() = arrayOf("ca.jent.ca.jent.webflux")
 
 }
 ```

@@ -5,4 +5,4 @@ import org.springframework.data.cassandra.repository.ReactiveCassandraRepository
 import org.springframework.stereotype.Repository
 
 @Repository
-interface EmployeeRepository: ReactiveCassandraRepository<String, Employee>
+interface EmployeeRepository: ReactiveCassandraRepository<Employee, String>
