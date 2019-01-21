@@ -77,6 +77,13 @@ import org.springframework.data.cassandra.config.AbstractCassandraConfiguration
 
 class CassandraConfig: AbstractCassandraConfiguration() {
 
+    // @see https://stackoverflow.com/questions/53101753/spring-boot-data-cassandra-reactive-jmxreporter-problem
+    override fun cluster(): CassandraClusterFactoryBean {
+        val factoryBean = super.cluster()
+        factoryBean.setJmxReportingEnabled(false)
+        return factoryBean
+    }
+
     override fun getKeyspaceName() = "hr"
 
     override fun getContactPoints() = "localhost"
@@ -84,4 +91,20 @@ class CassandraConfig: AbstractCassandraConfiguration() {
     override fun getEntityBasePackages() = arrayOf("ca.jent.ca.jent.webflux")
 
 }
+```
+
+### Build
+
+From the terminal:
+```
+./gradlew clean build
+```
+
+### Run
+
+* Note: Cassandra db must be running as specified above.
+
+From the terminal:
+```
+./gradlew bootRun
 ```
